@@ -37,7 +37,7 @@ abstract class Persona
     public abstract function Hablar($idioma);
     
 
-    public function ToString()
+    public function __toString()
     {
         return "<br>Nombre: ".$this->_nombre." - Apellido: ".$this->_apellido." - Dni: ".$this->_dni." - Sexo: ".$this->_sexo;
     }

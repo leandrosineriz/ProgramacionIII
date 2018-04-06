@@ -31,15 +31,19 @@ class Empleado extends Persona
 
     public function Hablar($idioma)
     {
+        $retorno="El empleado habla: ";
+        foreach($idioma as $valor)
+        {
+            $retorno=$retorno.$valor.", ";
+
+        }
         
-        return "El empleado habla: ".$idioma;
-
-
+        return $retorno;
     }
 
-    public function ToString()
+    public function __toString()
     {
-        return parent::ToString()." - Legajo: ".$this->_legajo." - Sueldo: ".$this->_sueldo." - Turno: ".$this->_turno;
+        return parent::__toString()." - Legajo: ".$this->_legajo." - Sueldo: ".$this->_sueldo." - Turno: ".$this->_turno;
     }
 }
 
