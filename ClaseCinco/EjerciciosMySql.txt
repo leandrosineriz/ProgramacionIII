@@ -1,0 +1,22 @@
+1- SELECT * FROM `productos` ORDER BY productos.pNombre
+
+2- SELECT * FROM `provedores` WHERE provedores.Localidad='Quilmes'
+
+3- SELECT * FROM `envios` WHERE envios.Cantidad BETWEEN 199 AND 301
+
+4- SELECT SUM(envios.Cantidad) AS total FROM `envios`
+
+5- SELECT envios.pNumero FROM `envios` LIMIT 3
+
+6- SELECT productos.pNombre, provedores.Nombre FROM `envios` 
+INNER JOIN `productos` ON productos.pNumero = envios.pNumero 
+INNER JOIN `provedores` ON provedores.Numero = envios.Numero
+
+7- SELECT (productos.Precio*envios.Cantidad) as monto FROM `envios` 
+INNER JOIN `productos` ON productos.pNumero = envios.pNumero
+
+8- SELECT SUM(envios.Cantidad) as CantidadTotal FROM `envios` WHERE envios.pNumero=1 AND envios.Numero = 102
+
+9- SELECT envios.pNumero FROM `envios` INNER JOIN provedores ON provedores.Numero = envios.Numero AND provedores.Localidad='Avellaneda' WHERE 1
+
+10- SELECT provedores.Domicilio, provedores.Localidad FROM `provedores` WHERE provedores.Nombre LIKE '%i%'
