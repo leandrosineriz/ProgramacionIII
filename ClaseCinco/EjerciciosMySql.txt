@@ -20,3 +20,23 @@ INNER JOIN `productos` ON productos.pNumero = envios.pNumero
 9- SELECT envios.pNumero FROM `envios` INNER JOIN provedores ON provedores.Numero = envios.Numero AND provedores.Localidad='Avellaneda' WHERE 1
 
 10- SELECT provedores.Domicilio, provedores.Localidad FROM `provedores` WHERE provedores.Nombre LIKE '%i%'
+
+11- INSERT INTO `productos`(`pNumero`, `pNombre`, `Precio`, `Tamaño`) VALUES (4, 'Chocolate', 25.35, 'Chico')
+
+12- INSERT INTO `provedores`(`Numero`) VALUES (4)
+
+13- INSERT INTO `provedores`(`Numero`, `Nombre`, `Localidad`) VALUES (107,'Rosales','La PLata') 
+
+14- UPDATE `productos` SET `Precio`=97.50 WHERE productos.Tamaño='grande'
+
+15- UPDATE `productos`
+    INNER JOIN envios ON envios.pNumero=productos.pNumero
+    SET `Tamaño`='Mediano' 
+    WHERE envios.Cantidad>299
+
+16- DELETE FROM `productos` WHERE productos.pNumero=1
+
+17- DELETE provedores.* FROM provedores 
+    WHERE provedores.Numero NOT IN (SELECT envios.Numero FROM envios WHERE provedores.Numero=envios.Numero)
+
+INSERT INTO `provedores`(`Numero`, `Nombre`, `Domicilio`, `Localidad`) VALUES (100, 'Perez', 'Perón 876', 'Quilmes'),(101, 'Gimenez', 'Mitre 750' ,'Avellaneda'),(102, 'Aguirre' ,'Boedo 634', 'Bernal'),(107,NULL,NULL,NULL)
