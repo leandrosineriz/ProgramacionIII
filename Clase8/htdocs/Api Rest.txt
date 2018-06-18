@@ -1,0 +1,70 @@
+1.Instalar Composer
+
+2.Instalar Slim Framework
+-crear archivo: composer.json
+-agregarle:
+{
+   
+    "require": {
+        "slim/slim":"^3.0"
+    
+    }
+}
+-en consola bash ejecutar: >composer install
+
+3. ahora agregar en el archivo php que va a usar el framework:
+
+
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
+
+require_once './vendor/autoload.php';
+//require_once '/clases/AccesoDatos.php';
+//require_once '/clases/cd.php';
+
+$config['displayErrorDetails'] = true;
+$config['addContentLengthHeader'] = false;
+
+/*
+¡La primera línea es la más importante! A su vez en el modo de 
+desarrollo para obtener información sobre los errores
+ (sin él, Slim por lo menos registrar los errores por lo que si está utilizando
+  el construido en PHP webserver, entonces usted verá en la salida de la consola 
+  que es útil).
+
+  La segunda línea permite al servidor web establecer el encabezado Content-Length, 
+  lo que hace que Slim se comporte de manera más predecible.
+*/
+
+4. Crear un archivo llamado: .htaccess y agregarle el siguiente codigo:
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.php [L]
+
+
+5.Inicializo Api rest:
+
+
+//*********************************************************************************************//
+//INICIALIZO EL APIREST
+//*********************************************************************************************//
+$app = new \Slim\App(["settings" => $config]);
+//echo "antes funcion";
+
+
+
+$app->get('/', function (Request $request, Response $response) {    
+    $response->getBody()->write("GET => Bienvenido!!! a SlimFramework");
+    return $response;
+
+});
+//echo "despues funcion";
+$app->post('/', function (Request $request, Response $response) {   
+    $response->getBody()->write("POST => Bienvenido!!! a SlimFramework");
+    return $response;
+
+});
+
+$app->run();
+

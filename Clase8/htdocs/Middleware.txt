@@ -1,0 +1,30 @@
+El MIDDLEWARE en una funcion que permite ejecutar codigo antes y despues de llamar a un verbo en la API REST.
+
+ejemplos:
+1. se ejecuta antes y despues de cada verbo llamado
+
+$app->add(function($request,$response,$ndr){
+    $response->getBody()->write("ANTES DE MIDDLEWARE");
+
+    $response = $ndr($request,$response);
+
+    $response->getBody()->write("Despues de Middleware");
+
+    return $response;
+});
+
+2.se ejecuta antes y despues de que se llama a este unico verbo
+
+$app->put('/', function (Request $request, Response $response) {   
+    $response->getBody()->write(" PUT => Bienvenido!!! a SlimFramework");
+    return $response;
+
+})->add(function($request,$response,$ndr){
+    $response->getBody()->write("ANTES DE MIDDLEWARE");
+
+    $response = $ndr($request,$response);
+
+    $response->getBody()->write("Despues de Middleware");
+
+    return $response;
+});	

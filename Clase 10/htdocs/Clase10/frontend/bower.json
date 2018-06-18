@@ -1,0 +1,18 @@
+{
+  "name": "Clase 8",
+  "description": "Prueba instalacion bower",
+  "main": "index.html",
+  "keywords": [
+    "prueba"
+  ],
+  "authors": [
+    "leo"
+  ],
+  "license": "GPL",
+  "homepage": "none",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+
+}

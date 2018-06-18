@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./frontend/frameworks/bootstrap/dist/css/bootstrap.css">
+    <script src="./frontend/frameworks/jquery/dist/jquery.js"></script>
+    <script src="./frontend/frameworks/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="./frontend/administrar.js"></script>
+
+    <title>Clase 8</title>
+</head>
+<body style="background-color:rgb(250, 250, 250)">
+
+    <div class="container-fluid" >
+
+     <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="">
+                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="MostrarCds()">TRAER CD</button>             
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="">
+                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="MandarMail()">Mandar Mail</button>             
+            </div>
+     </div>
+
+    <br><br>
+    <div id="div_tabla_cd" class="table-responsive"></div>
+
+    </div>
+    
+</body>
+</html>
